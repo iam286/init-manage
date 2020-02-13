@@ -3,7 +3,7 @@
 <mapper namespace="com.qcz.qmplatform.module.sys.dao.MenuDao">
 	
 	<select id="menuTreesData" resultType="com.qcz.qmplatform.module.sys.entity.Tree">
-		select distinct
+		select
 		 	sm.menu_id id,
 		 	sm.menu_name name,
 		 	sm.parent_id,

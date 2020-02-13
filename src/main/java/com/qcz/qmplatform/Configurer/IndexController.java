@@ -1,4 +1,4 @@
-package com.qcz.qmplatform;
+package com.qcz.qmplatform.Configurer;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.qcz.qmplatform;
+package com.qcz.qmplatform.Configurer;
 
 import com.qcz.qmplatform.common.filter.KickoutSessionControlFilter;
 import com.qcz.qmplatform.common.filter.LoginFilter;

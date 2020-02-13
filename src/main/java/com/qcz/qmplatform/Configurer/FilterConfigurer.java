@@ -1,4 +1,4 @@
-package com.qcz.qmplatform;
+package com.qcz.qmplatform.Configurer;
 
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;

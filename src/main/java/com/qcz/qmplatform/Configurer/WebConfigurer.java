@@ -1,4 +1,4 @@
-package com.qcz.qmplatform;
+package com.qcz.qmplatform.Configurer;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.util.ResourceUtils;

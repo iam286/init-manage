@@ -1,5 +1,7 @@
 package com.qcz.qmplatform.module.sys.entity;
 
+import lombok.Data;
+
 import java.io.Serializable;
 
 import javax.persistence.Id;
@@ -10,7 +12,8 @@ import javax.persistence.Table;
  * @author changzhongq
  * @time 2018年6月19日 上午11:20:58
  */
-@Table(name = "SYS_ROLE_MENU")
+@Data
+@Table(name = "sys_role_menu")
 public class RoleMenu implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -21,29 +24,5 @@ public class RoleMenu implements Serializable {
 	private String roleId;
 	
 	private String menuId;
-
-	public String getRoleMenuId() {
-		return roleMenuId;
-	}
-
-	public void setRoleMenuId(String roleMenuId) {
-		this.roleMenuId = roleMenuId;
-	}
-
-	public String getRoleId() {
-		return roleId;
-	}
-
-	public void setRoleId(String roleId) {
-		this.roleId = roleId;
-	}
-
-	public String getMenuId() {
-		return menuId;
-	}
-
-	public void setMenuId(String menuId) {
-		this.menuId = menuId;
-	}
 	
 }

@@ -1,5 +1,7 @@
 package com.qcz.qmplatform.module.sys.entity;
 
+import lombok.Data;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -11,6 +13,7 @@ import javax.persistence.Table;
  * @author changzhongq
  * @time 2018年6月22日 下午6:08:08
  */
+@Data
 @Table(name = "sys_operate_log")
 public class SysOperateLog implements Serializable {
 
@@ -83,101 +86,4 @@ public class SysOperateLog implements Serializable {
 				+ ", operateUserName=" + operateUserName + ", operateTime=" + operateTime + ", updateParams=" + updateParams + ", requestUrl=" + requestUrl + ", tableName=" + tableName + ", ip=" + ip
 				+ "]";
 	}
-
-	public String getOperateSystem() {
-		return operateSystem;
-	}
-
-	public void setOperateSystem(String operateSystem) {
-		this.operateSystem = operateSystem;
-	}
-
-	public String getOperateModule() {
-		return operateModule;
-	}
-
-	public void setOperateModule(String operateModule) {
-		this.operateModule = operateModule;
-	}
-
-	public String getIp() {
-		return ip;
-	}
-
-	public void setIp(String ip) {
-		this.ip = ip;
-	}
-
-	public int getOperateStatus() {
-		return operateStatus;
-	}
-
-	public void setOperateStatus(int operateStatus) {
-		this.operateStatus = operateStatus;
-	}
-
-	public String getTableName() {
-		return tableName;
-	}
-
-	public void setTableName(String tableName) {
-		this.tableName = tableName;
-	}
-
-	public String getRequestUrl() {
-		return requestUrl;
-	}
-
-	public void setRequestUrl(String requestUrl) {
-		this.requestUrl = requestUrl;
-	}
-
-	public String getLogId() {
-		return logId;
-	}
-
-	public void setLogId(String logId) {
-		this.logId = logId;
-	}
-
-	public String getOperateType() {
-		return operateType;
-	}
-
-	public void setOperateType(String operateType) {
-		this.operateType = operateType;
-	}
-
-	public String getOperateUserId() {
-		return operateUserId;
-	}
-
-	public void setOperateUserId(String operateUserId) {
-		this.operateUserId = operateUserId;
-	}
-
-	public String getOperateUserName() {
-		return operateUserName;
-	}
-
-	public void setOperateUserName(String operateUserName) {
-		this.operateUserName = operateUserName;
-	}
-
-	public Date getOperateTime() {
-		return operateTime;
-	}
-
-	public void setOperateTime(Date operateTime) {
-		this.operateTime = operateTime;
-	}
-
-	public String getUpdateParams() {
-		return updateParams;
-	}
-
-	public void setUpdateParams(String updateParams) {
-		this.updateParams = updateParams;
-	}
-
 }

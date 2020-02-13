@@ -1,5 +1,7 @@
 package com.qcz.qmplatform.module.sys.entity;
 
+import lombok.Data;
+
 import java.io.Serializable;
 
 import javax.persistence.Id;
@@ -10,7 +12,8 @@ import javax.persistence.Table;
  * @author changzhongq
  * @time 2018年6月18日 下午7:36:50
  */
-@Table(name = "SYS_ROLE")
+@Data
+@Table(name = "sys_role")
 public class Role implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -24,36 +27,4 @@ public class Role implements Serializable {
 	
 	private String remark;
 
-	public String getRoleId() {
-		return roleId;
-	}
-
-	public void setRoleId(String roleId) {
-		this.roleId = roleId;
-	}
-
-	public String getRoleName() {
-		return roleName;
-	}
-
-	public void setRoleName(String roleName) {
-		this.roleName = roleName;
-	}
-
-	public String getRoleSign() {
-		return roleSign;
-	}
-
-	public void setRoleSign(String roleSign) {
-		this.roleSign = roleSign;
-	}
-
-	public String getRemark() {
-		return remark;
-	}
-
-	public void setRemark(String remark) {
-		this.remark = remark;
-	}
-	
 }

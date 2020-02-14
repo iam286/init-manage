@@ -40,6 +40,3 @@
   - 操作日志
 ## 功能截图
   ![image](https://github.com/iam286/init-manage/blob/master/picture/login.jpg)
-  ![image](https://github.com/iam286/init-manage/blob/master/picture/index.jpg)
-  ![image](https://github.com/iam286/init-manage/blob/master/picture/user-list.jpg)
-  ![image](https://github.com/iam286/init-manage/blob/master/picture/sysOperateLog-list.jpg)

@@ -17,6 +17,7 @@ public class PlatformApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
 		SpringApplication.run(PlatformApplication.class, args);
+		System.out.println("================PlatformApplication running success================");
 	}
 
 	@Override

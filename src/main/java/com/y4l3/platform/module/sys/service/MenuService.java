@@ -35,6 +35,8 @@ import com.y4l3.platform.module.sys.form.RoleForm;
 @Module("菜单管理")
 public class MenuService extends BaseService<Menu, MenuDao> {
 
+    private static final String ROOT_MENU_ID = "0";
+
     @Autowired
     private IconDao iconDao;
     
@@ -60,9 +62,10 @@ public class MenuService extends BaseService<Menu, MenuDao> {
      */
     public List<Tree> findMenuTreesData() {
         List<Tree> menus = mapper.menuTreesData(SubjectUtils.getUserId());
-        List<Tree> mostHeightNodes = new ArrayList<Tree>();// 顶级节点
-        for (Tree menu : menus) {
-            if ("0".equals(menu.getParentId())) {
+        //根节点
+        List<Tree> mostHeightNodes = new ArrayList<>();
+        menus.stream().distinct().forEach(menu->{
+            if (ROOT_MENU_ID.equals(menu.getParentId())) {
                 Tree tree = menu;
                 tree.setHasParent(false);
                 mostHeightNodes.add(tree);
@@ -71,25 +74,25 @@ public class MenuService extends BaseService<Menu, MenuDao> {
             if (StringUtils.isEmpty(menu.getIcon())) {
                 menu.setIcon("layui-icon layui-icon-template-1");
             }
-        }
+        });
         return buildTree(mostHeightNodes, menus);
     }
 
     public List<Tree> buildTree(List<Tree> trees, List<Tree> menus) {
         for (Tree tree : trees) {
             String parentId = tree.getId();
-            List<Tree> childrens = new ArrayList<Tree>();
+            List<Tree> children = new ArrayList<>();
             for (Tree menu : menus) {
                 if (parentId.equals(menu.getParentId())) {
-                    childrens.add(menu);
+                    children.add(menu);
                     tree.setHasChild(true);
                 }
             }
-            // 如果有子节点，执行递归查询
-            if (childrens.size() > 0) {
-                childrens = buildTree(childrens, menus);
+            // 递归遍历子节点
+            if (children.size() > 0) {
+                children = buildTree(children, menus);
             }
-            tree.setChildrens(childrens);
+            tree.setChildrens(children);
         }
         return trees;
     }

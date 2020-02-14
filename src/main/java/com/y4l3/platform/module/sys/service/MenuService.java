@@ -8,6 +8,10 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import com.alibaba.druid.support.json.JSONUtils;
+import com.fasterxml.jackson.databind.util.JSONPObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -37,6 +41,8 @@ import com.y4l3.platform.module.sys.form.RoleForm;
 @Module("菜单管理")
 public class MenuService extends BaseService<Menu, MenuDao> {
 
+    private static final Logger logger = LoggerFactory.getLogger(MenuService.class);
+
     private static final String ROOT_MENU_ID = "0";
 
     @Autowired
@@ -65,6 +71,7 @@ public class MenuService extends BaseService<Menu, MenuDao> {
      */
     public List<Tree> findMenuTreesData() {
         List<Tree> menus = mapper.menuTreesData(SubjectUtils.getUserId()).stream().distinct().collect(Collectors.toList());
+        logger.info("current user menus:{}", menus);
         //根节点
         List<Tree> mostHeightNodes = new ArrayList<>();
         menus.forEach(menu -> {

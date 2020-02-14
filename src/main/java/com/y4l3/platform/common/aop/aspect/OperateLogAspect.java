@@ -1,7 +1,6 @@
 package com.y4l3.platform.common.aop.aspect;
 
 import java.lang.reflect.Method;
-import java.lang.reflect.ParameterizedType;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
@@ -128,30 +127,27 @@ public class OperateLogAspect {
 			String ipAddress = HttpServletUtils.getIpAddress(request);
 			// 在另一线程使用外部可变变量需要做一层过渡
 			int operateStatusTemp = operateStatus;
-			executorService.submit(new Runnable() {
-				@Override
-				public void run() {
-					MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
-					Method method = methodSignature.getMethod();
-					CustomOperateLog customOperateLog = method.getAnnotation(CustomOperateLog.class);
-					String moduleName = null;
-					OperateType type = null;
-					if (customOperateLog != null) {
-						type = customOperateLog.type();
-						switch (type) {
-						case LOGIN:
-							moduleName = "登录系统";
-							break;
-						case LOGOUT:
-							moduleName = "退出系统";
-							break;
-						default:
-							moduleName = "未知";
-							break;
-						}
+			executorService.submit(() -> {
+				MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
+				Method method = methodSignature.getMethod();
+				CustomOperateLog customOperateLog = method.getAnnotation(CustomOperateLog.class);
+				String moduleName = null;
+				OperateType type = null;
+				if (customOperateLog != null) {
+					type = customOperateLog.type();
+					switch (type) {
+					case LOGIN:
+						moduleName = "登录系统";
+						break;
+					case LOGOUT:
+						moduleName = "退出系统";
+						break;
+					default:
+						moduleName = "未知";
+						break;
 					}
-					insertOperateLog(operateStatusTemp, type, "", moduleName, requestUrl, ipAddress, null, currentUser);
 				}
+				insertOperateLog(operateStatusTemp, type, "", moduleName, requestUrl, ipAddress, null, currentUser);
 			});
 		}
 		return proceed;
@@ -187,35 +183,32 @@ public class OperateLogAspect {
 			String ipAddress = HttpServletUtils.getIpAddress(request);
 			// 在另一线程使用外部可变变量需要做一层过渡
 			int operateStatusTemp = operateStatus;
-			executorService.submit(new Runnable() {
-				@Override
-				public void run() {
-					MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
-					// 方法参数名
-					String[] parameterNames = methodSignature.getParameterNames();
-					// 方法参数值
-					Object[] parameterValues = joinPoint.getArgs();
-					// 解析方法参数
-					Map<String, Object> updateParams = new HashMap<>();
-					if (parameterValues != null && parameterValues.length > 0) {
-						for (int i = 0; i < parameterValues.length; i++) {
-							Object object = parameterValues[i];
-							if (object instanceof Map) {
-								Map<String, Object> paramMap = (Map<String, Object>) object;
-								updateParams.put(parameterNames[i], paramMap);
-							} else if (object instanceof String) {
-								updateParams.put(parameterNames[i], object.toString());
-							}
+			executorService.submit(() -> {
+				MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
+				// 方法参数名
+				String[] parameterNames = methodSignature.getParameterNames();
+				// 方法参数值
+				Object[] parameterValues = joinPoint.getArgs();
+				// 解析方法参数
+				Map<String, Object> updateParams = new HashMap<>();
+				if (parameterValues != null && parameterValues.length > 0) {
+					for (int i = 0; i < parameterValues.length; i++) {
+						Object object = parameterValues[i];
+						if (object instanceof Map) {
+							Map<String, Object> paramMap = (Map<String, Object>) object;
+							updateParams.put(parameterNames[i], paramMap);
+						} else if (object instanceof String) {
+							updateParams.put(parameterNames[i], object.toString());
 						}
 					}
-					Module module = targetClass.getAnnotation(Module.class);
-					String moduleName = null;
-					if (module != null) {
-						moduleName = module.value();
-					}
-					insertOperateLog(operateStatusTemp, OperateType.FIND, JSONUtils.toJSONString(updateParams), moduleName, requestUrl, ipAddress,
-							ReflectUtils.getTable(ReflectUtils.getEntityClass(targetClass)), currentUser);
 				}
+				Module module = targetClass.getAnnotation(Module.class);
+				String moduleName = null;
+				if (module != null) {
+					moduleName = module.value();
+				}
+				insertOperateLog(operateStatusTemp, OperateType.FIND, JSONUtils.toJSONString(updateParams), moduleName, requestUrl, ipAddress,
+						ReflectUtils.getTable(ReflectUtils.getEntityClass(targetClass)), currentUser);
 			});
 		}
 		return proceed;
@@ -275,16 +268,13 @@ public class OperateLogAspect {
 			int operateStatusTemp = operateStatus;
 			Map<String, Object> updateParamsTemp = updateParams;
 			OperateType operateTypeTemp = operateType;
-			executorService.submit(new Runnable() {
-				@Override
-				public void run() {
-					Module module = targetClass.getAnnotation(Module.class);
-					String moduleName = null;
-					if (module != null) {
-						moduleName = module.value();
-					}
-					insertOperateLog(operateStatusTemp, operateTypeTemp, JSONUtils.toJSONString(updateParamsTemp), moduleName, requestUrl, ipAddress, ReflectUtils.getTable(entityClass), currentUser);
+			executorService.submit(() -> {
+				Module module = targetClass.getAnnotation(Module.class);
+				String moduleName = null;
+				if (module != null) {
+					moduleName = module.value();
 				}
+				insertOperateLog(operateStatusTemp, operateTypeTemp, JSONUtils.toJSONString(updateParamsTemp), moduleName, requestUrl, ipAddress, ReflectUtils.getTable(entityClass), currentUser);
 			});
 		}
 		return proceed;
@@ -331,16 +321,13 @@ public class OperateLogAspect {
 			// 在另一线程使用外部可变变量需要做一层过渡
 			int operateStatusTemp = operateStatus;
 			Map<String, Object> oldDataTemp = oldData;
-			executorService.submit(new Runnable() {
-				@Override
-				public void run() {
-					Module module = targetClass.getAnnotation(Module.class);
-					String moduleName = null;
-					if (module != null) {
-						moduleName = module.value();
-					}
-					insertOperateLog(operateStatusTemp, OperateType.DELETE, JSONUtils.toJSONString(oldDataTemp), moduleName, requestUrl, ipAddress, ReflectUtils.getTable(entityClass), currentUser);
+			executorService.submit(() -> {
+				Module module = targetClass.getAnnotation(Module.class);
+				String moduleName = null;
+				if (module != null) {
+					moduleName = module.value();
 				}
+				insertOperateLog(operateStatusTemp, OperateType.DELETE, JSONUtils.toJSONString(oldDataTemp), moduleName, requestUrl, ipAddress, ReflectUtils.getTable(entityClass), currentUser);
 			});
 		}
 		return proceed;
@@ -373,19 +360,16 @@ public class OperateLogAspect {
 			String ipAddress = HttpServletUtils.getIpAddress(request);
 			// 在另一线程使用外部可变变量需要做一层过渡
 			int operateStatusTemp = operateStatus;
-			executorService.submit(new Runnable() {
-				@Override
-				public void run() {
-					Map<String, Object> updateParams = new HashMap<>();
-					updateParams.put("updateBefore", CommonUtils.convertMap(joinPoint.getArgs()[0]));
-					updateParams.put("updateAfter", CommonUtils.convertMap(joinPoint.getArgs()[1]));
-					Module module = targetClass.getAnnotation(Module.class);
-					String moduleName = null;
-					if (module != null) {
-						moduleName = module.value();
-					}
-					insertOperateLog(operateStatusTemp, OperateType.UPDATE, JSONUtils.toJSONString(updateParams), moduleName, requestUrl, ipAddress, ReflectUtils.getTable(entityClass), currentUser);
+			executorService.submit(() -> {
+				Map<String, Object> updateParams = new HashMap<>();
+				updateParams.put("updateBefore", CommonUtils.convertMap(joinPoint.getArgs()[0]));
+				updateParams.put("updateAfter", CommonUtils.convertMap(joinPoint.getArgs()[1]));
+				Module module = targetClass.getAnnotation(Module.class);
+				String moduleName = null;
+				if (module != null) {
+					moduleName = module.value();
 				}
+				insertOperateLog(operateStatusTemp, OperateType.UPDATE, JSONUtils.toJSONString(updateParams), moduleName, requestUrl, ipAddress, ReflectUtils.getTable(entityClass), currentUser);
 			});
 		}
 		return proceed;
@@ -415,7 +399,7 @@ public class OperateLogAspect {
 		log.setIp(ipAddress);
 		log.setTableName(tableName);
 		log.setOperateStatus(operateStatus);
-
+		System.out.println(log+"===");
 		sysOperateLogDao.insert(log);
 	}
 
@@ -429,9 +413,4 @@ public class OperateLogAspect {
 		return request;
 	}
 
-	public static void main(String[] args) throws ClassNotFoundException {
-		Class<?> clazz = Class.forName("com.y4l3.platform.module.sys.service.MenuService");
-		ParameterizedType type = (ParameterizedType) clazz.getGenericSuperclass();
-		System.err.println(type.getActualTypeArguments()[0]);
-	}
 }

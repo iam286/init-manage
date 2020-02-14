@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +29,7 @@ import com.y4l3.platform.module.sys.form.RoleForm;
 
 /**
  * 菜单服务
+ *
  * @author changzhongq
  * @time 2018年10月20日 下午10:19:41
  */
@@ -39,16 +41,16 @@ public class MenuService extends BaseService<Menu, MenuDao> {
 
     @Autowired
     private IconDao iconDao;
-    
+
     @Autowired
     private RoleDao roleDao;
 
     public Set<String> listRoles(String userId) {
-    	Set<String> set = new HashSet<>();
-    	List<RoleForm> roles = roleDao.getRoleByUserId(userId);
-    	for (RoleForm role : roles) {
-			set.add(role.roleId);
-		}
+        Set<String> set = new HashSet<>();
+        List<RoleForm> roles = roleDao.getRoleByUserId(userId);
+        for (RoleForm role : roles) {
+            set.add(role.roleId);
+        }
         return set;
     }
 
@@ -58,13 +60,14 @@ public class MenuService extends BaseService<Menu, MenuDao> {
 
     /**
      * 首页菜单树数据
+     *
      * @return
      */
     public List<Tree> findMenuTreesData() {
-        List<Tree> menus = mapper.menuTreesData(SubjectUtils.getUserId());
+        List<Tree> menus = mapper.menuTreesData(SubjectUtils.getUserId()).stream().distinct().collect(Collectors.toList());
         //根节点
         List<Tree> mostHeightNodes = new ArrayList<>();
-        menus.stream().distinct().forEach(menu->{
+        menus.forEach(menu -> {
             if (ROOT_MENU_ID.equals(menu.getParentId())) {
                 Tree tree = menu;
                 tree.setHasParent(false);
@@ -99,6 +102,7 @@ public class MenuService extends BaseService<Menu, MenuDao> {
 
     /**
      * 角色设置菜单权限
+     *
      * @param roleId  角色id
      * @param menuIds 菜单id数组
      */

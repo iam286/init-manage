@@ -1,21 +1,24 @@
 package com.qcz.qmplatform.common.message;
 
+import lombok.Data;
+
 /**
  * 响应结果统一处理
  * @author quchangzhong
  * @time 2018年1月19日 下午8:17:30
  */
+@Data
 public class ResponseResult {
 
-	private boolean isSuccess;
+	private boolean success;
 
 	private String msg;
 
 	private Object data;
 
-	public ResponseResult(boolean isSuccess, String msg, Object data) {
+	public ResponseResult(boolean success, String msg, Object data) {
 		super();
-		this.isSuccess = isSuccess;
+		this.success = success;
 		this.msg = msg;
 		this.data = data;
 	}
@@ -37,30 +40,6 @@ public class ResponseResult {
 
 	public static ResponseResult error(String msg) {
 		return new ResponseResult(false, msg, null);
-	}
-
-	public boolean getIsSuccess() {
-		return isSuccess;
-	}
-
-	public void setIsSuccess(boolean isSuccess) {
-		this.isSuccess = isSuccess;
-	}
-
-	public String getMsg() {
-		return msg;
-	}
-
-	public void setMsg(String msg) {
-		this.msg = msg;
-	}
-
-	public Object getData() {
-		return data;
-	}
-
-	public void setData(Object data) {
-		this.data = data;
 	}
 
 }

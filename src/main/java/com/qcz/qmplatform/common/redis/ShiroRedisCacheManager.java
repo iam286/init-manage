@@ -21,7 +21,12 @@ public class ShiroRedisCacheManager extends AbstractCacheManager {
 		this.redisTemplate = redisTemplate;
 	}
 
-	// 为了个性化配置redis存储时的key，我们选择了加前缀的方式，所以写了一个带名字及redis操作的构造函数的Cache类
+	/**
+	 * 为了个性化配置redis存储时的key，我们选择了加前缀的方式，所以写了一个带名字及redis操作的构造函数的Cache类
+	 * @param name
+	 * @return
+	 * @throws CacheException
+	 */
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public Cache createCache(String name) throws CacheException {

@@ -1,5 +1,7 @@
 package com.qcz.qmplatform.module.sys.form;
 
+import lombok.Data;
+
 import java.util.Date;
 
 /**
@@ -7,6 +9,7 @@ import java.util.Date;
  * @author changzhongq
  * @time 2018年12月1日 下午7:41:28
  */
+@Data
 public class UserForm {
 
 	/**

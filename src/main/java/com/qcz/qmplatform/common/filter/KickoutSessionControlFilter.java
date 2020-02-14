@@ -111,7 +111,7 @@ public class KickoutSessionControlFilter extends AccessControlFilter {
 				response.setContentType("application/json");
 				ResponseResult resultData = new ResponseResult();
 				resultData.setData(0);
-				resultData.setIsSuccess(false);
+				resultData.setSuccess(false);
 				resultData.setMsg("您已经在其他地方登录，请重新登录！");
 				response.getWriter().write(new Gson().toJson(resultData));
 			} else {

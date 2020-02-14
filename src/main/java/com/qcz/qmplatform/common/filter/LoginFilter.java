@@ -31,7 +31,7 @@ public class LoginFilter extends FormAuthenticationFilter {
 			resp.setContentType("application/json");
 			ResponseResult resultData = new ResponseResult();
 			resultData.setData(0);
-			resultData.setIsSuccess(false);
+			resultData.setSuccess(false);
 			resultData.setMsg("登录认证失效,请重新登录!");
 			resp.getWriter().write(new Gson().toJson(resultData));
 		} else {

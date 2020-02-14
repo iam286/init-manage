@@ -1,5 +1,7 @@
 package com.qcz.qmplatform.common.message;
 
+import lombok.Data;
+
 import java.io.Serializable;
 
 /**
@@ -7,6 +9,7 @@ import java.io.Serializable;
  * @author changzhongq
  * @time 2018年6月12日 上午9:56:55
  */
+@Data
 public class PageRequest implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
@@ -41,36 +44,4 @@ public class PageRequest implements Serializable {
 		this.order = order;
 	}
 
-	public Integer getPage() {
-		return page;
-	}
-
-	public void setPage(Integer page) {
-		this.page = page;
-	}
-
-	public Integer getLimit() {
-		return limit;
-	}
-
-	public void setLimit(Integer limit) {
-		this.limit = limit;
-	}
-
-	public String getField() {
-		return field;
-	}
-
-	public void setField(String field) {
-		this.field = field;
-	}
-
-	public String getOrder() {
-		return order;
-	}
-
-	public void setOrder(String order) {
-		this.order = order;
-	}
-	
 }

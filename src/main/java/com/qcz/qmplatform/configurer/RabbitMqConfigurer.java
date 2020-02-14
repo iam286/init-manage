@@ -1,4 +1,4 @@
-package com.qcz.qmplatform.Configurer;
+package com.qcz.qmplatform.configurer;
 
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;

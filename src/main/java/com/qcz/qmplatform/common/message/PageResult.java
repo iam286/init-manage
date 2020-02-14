@@ -1,5 +1,7 @@
 package com.qcz.qmplatform.common.message;
 
+import lombok.Data;
+
 import java.util.List;
 
 /**
@@ -7,6 +9,7 @@ import java.util.List;
  * @author changzhongq
  * @time 2018年6月11日 下午7:02:57
  */
+@Data
 public class PageResult {
 
 	/**
@@ -42,38 +45,6 @@ public class PageResult {
 		this.code = code;
 		this.msg = msg;
 		this.count = count;
-		this.data = data;
-	}
-
-	public String getCode() {
-		return code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
-	}
-
-	public String getMsg() {
-		return msg;
-	}
-
-	public void setMsg(String msg) {
-		this.msg = msg;
-	}
-
-	public Long getCount() {
-		return count;
-	}
-
-	public void setCount(Long count) {
-		this.count = count;
-	}
-
-	public List<?> getData() {
-		return data;
-	}
-
-	public void setData(List<?> data) {
 		this.data = data;
 	}
 

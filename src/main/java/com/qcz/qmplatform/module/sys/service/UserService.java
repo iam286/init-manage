@@ -79,7 +79,7 @@ public class UserService extends BaseService<User, UserDao> {
 
 	/**
 	 * 更新用户状态
-	 * @param data
+	 * @param user
 	 * @return
 	 */
 	public ResponseResult changeLockedStatus(User user) {
@@ -145,10 +145,10 @@ public class UserService extends BaseService<User, UserDao> {
 			User user = SubjectUtils.getUser();
 			user.setThemeColor(themeColor);
 			SubjectUtils.setUser(user);
-			responseResult.setIsSuccess(true);
+			responseResult.setSuccess(true);
 			responseResult.setMsg("主题切换成功！");
 		} else {
-			responseResult.setIsSuccess(false);
+			responseResult.setSuccess(false);
 			responseResult.setMsg("主题切换失败！");
 		}
 		return responseResult;

@@ -51,7 +51,4 @@ public class TimeUtils {
 		return beforeTime;
 	}
 
-	public static void main(String[] args) {
-		System.out.println(getDate());
-	}
 }

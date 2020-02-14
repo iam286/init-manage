@@ -1,4 +1,4 @@
-package com.qcz.qmplatform.Configurer;
+package com.qcz.qmplatform.configurer;
 
 import com.qcz.qmplatform.common.redis.RedisCache;
 import org.springframework.beans.factory.annotation.Autowired;

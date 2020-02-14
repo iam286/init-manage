@@ -73,8 +73,11 @@ public class FileUtils {
 		}
 	}
 
-	/*
+	/**
 	 * 文件复制，普通复制
+	 * @param sourceName
+	 * @param targetName
+	 * @throws IOException
 	 */
 	public static void copyFile(String sourceName, String targetName) throws IOException {
 		File sourceFile = new File(sourceName);
@@ -88,9 +91,12 @@ public class FileUtils {
 		os.close();
 		is.close();
 	}
-	
-	/*
+
+	/**
 	 * 文件复制，使用FileChannel
+	 * @param source
+	 * @param dest
+	 * @throws IOException
 	 */
 	@SuppressWarnings({ "resource" })
 	public static void copyFileUsingFileChannels(File source, File dest) throws IOException {

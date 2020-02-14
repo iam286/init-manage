@@ -1,7 +1,5 @@
 # init-manage
-  基于springboot的初始化管理平台
-## 简介：
-  init-manage是一个极简模式的后台管理。就像简介这么极简_^^_
+  基于springboot2.x的初始化管理平台
 ## 技术架构：
   后端技术|前端技术|模版引擎|组件
   ---|---|---|---
@@ -10,20 +8,19 @@
   redis|||
   shiro|||
   lombok|||
-
 ## 项目结构：
 ```
 |-- src
   |-- main
     |-- java
       |-- com
-        |-- qcz
+        |-- y4l3
           |-- platform
             |-- common                        // 公共类目录
+            |-- configurer                    // 配置器目录
             |-- main                          // 登录、登出等
             |-- moudle                        // 业务模块
-            |-- platformApplication.java    // 项目加载入口类
-            |-- *Configurer.java              // 各种配置文件
+            |-- platformApplication.java      // 项目加载入口类
   |-- resources                               // 资源文件目录
     |-- mapper                                // mybatis数据库映射文件
     |-- static                                // 静态文件
@@ -42,7 +39,7 @@
     - 角色管理
   - 操作日志
 ## 功能截图
-  ![image](https://github.com/qcz-left/init-manage/raw/master/picture/login.jpg)
-  ![image](https://github.com/qcz-left/init-manage/raw/master/picture/index.jpg)
-  ![image](https://github.com/qcz-left/init-manage/raw/master/picture/user-list.jpg)
-  ![image](https://github.com/qcz-left/init-manage/raw/master/picture/sysOperateLog-list.jpg)
+  ![image](https://github.com/iam286/init-manage/blob/master/picture/login.jpg)
+  ![image](https://github.com/iam286/init-manage/blob/master/picture/index.jpg)
+  ![image](https://github.com/iam286/init-manage/blob/master/picture/user-list.jpg)
+  ![image](https://github.com/iam286/init-manage/blob/master/picture/sysOperateLog-list.jpg)

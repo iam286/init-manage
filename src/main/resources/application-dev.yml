@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/slv_init_manage?useSSL=false
+    url: jdbc:mysql://localhost:3306/init_manage?useSSL=false
     username: root
     password: 123456
   redis:

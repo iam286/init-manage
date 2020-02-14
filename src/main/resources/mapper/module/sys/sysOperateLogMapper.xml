@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.qcz.qmplatform.module.sys.dao.SysOperateLogDao">
+<mapper namespace="com.y4l3.platform.module.sys.dao.SysOperateLogDao">
 
-	<select id="findSysOperateLogList" resultType="com.qcz.qmplatform.module.sys.entity.SysOperateLog">
+	<select id="findSysOperateLogList" resultType="com.y4l3.platform.module.sys.entity.SysOperateLog">
 		select
 			log_id,
 			operate_type,

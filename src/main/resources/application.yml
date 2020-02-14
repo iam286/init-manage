@@ -42,9 +42,9 @@ spring:
     connection-timeout: 60000
 server:
   servlet:
-    context-path: /slv-init-manage
+    context-path: /init-manage
   port: 9090
 database:
-  name: slv_init_manage
+  name: init_manage
 logging:
   config: classpath:logback-spring.xml

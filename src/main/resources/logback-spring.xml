@@ -3,7 +3,7 @@
     <!--设置系统日志目录-->
     <property name="APPDIR" value="logs"/>
     <!--文日志件名-->
-    <property name="LOG_NAME" value="qmplatform"/>
+    <property name="LOG_NAME" value="platform"/>
     <!-- %m输出的信息,%p日志级别,%t线程名,%d日期,%c类的全名,,,, -->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>

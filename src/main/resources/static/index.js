@@ -70,7 +70,7 @@ var vm = new Vue({
 					}
 					// 保存到数据库
 					commonUtils.postAjax(_ctx + "user/updateThemeColor", {themeColor:color}, function(data) {
-						if (data.isSuccess) {
+						if (data.success) {
 							layer.success(data.msg);
 						} else {
 							layer.error(data.msg);

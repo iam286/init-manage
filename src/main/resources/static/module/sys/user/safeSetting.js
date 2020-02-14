@@ -36,7 +36,7 @@ var vm = new Vue({
 				layer.load();
 				commonUtils.postAjax(_ctx + "user/safeSetting", vmData.data, function(data) {
 					layer.closeAll('loading');
-					if (data.isSuccess) {
+					if (data.success) {
 						layer.success(data.msg);
 						top.layer.loadingWithText("修改密码后需要重新登录以验证，3秒后转入登录页...");
 						setTimeout('top.location.href = _ctx + "main/logout"', 3000);

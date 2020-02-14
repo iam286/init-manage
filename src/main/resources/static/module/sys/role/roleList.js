@@ -92,7 +92,7 @@ layui.use([ 'layer', 'table' ], function() {
 	function deleteItem(id, name) {
 		layer.confirm("是否要删除角色：" + name + "，删除后将不可恢复！", {title:"警告", skin:"my-layer-danger"}, function() {
 			commonUtils.deleteAjax(_ctx + "role/delete/" + id, {}, function(data) {
-				if (data.isSuccess) {
+				if (data.success) {
 					layer.success(data.msg);
 					table.reload(tableId);
 				} else {

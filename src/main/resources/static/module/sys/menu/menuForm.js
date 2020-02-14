@@ -17,7 +17,7 @@ layui.use(['element', 'form', 'layer'], function() {
 		layer.load();
 		commonUtils.postAjax(_ctx + "menu/save", vmData.data, function(data) {
 			layer.closeAll('loading');
-			if (data.isSuccess) {
+			if (data.success) {
 				vmData.data.menuId = data.data;
 				layer.success(data.msg);
 			} else {

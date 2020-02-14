@@ -34,7 +34,7 @@ layui.use(['element', 'form', 'layer', 'dtree'], function() {
 		Vue.set(vmData.data, "menuIds", menuIds.toString());
 		commonUtils.postAjax(_ctx + "role/saveRole", vmData.data, function(data) {
 			layer.closeAll('loading');
-			if (data.isSuccess) {
+			if (data.success) {
 				vmData.data.roleId = data.data;
 				layer.success(data.msg);
 			} else {

@@ -29,7 +29,7 @@ layui.use(['form', 'layer'], function () {
         layer.loadingWithText("正在努力登陆中...");
         commonUtils.postAjax(_ctx + "main/login", vmData.data, function (data) {
             layer.closeAll("loading");
-            if (!data.isSuccess) {
+            if (!data.success) {
                 layer.error(data.msg);
             } else {
                 top.location.href = _ctx;

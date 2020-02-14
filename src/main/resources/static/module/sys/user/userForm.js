@@ -47,7 +47,7 @@ var vm = new Vue({
 				return;
 			}
 			commonUtils.getAjax(_ctx + "user/validateOnlyLoginName?loginName="+data, function(data) {
-				if (data.isSuccess) {
+				if (data.success) {
 					vmData.formStatus = true;
 					vmData.error.loginName = "";
 				} else {
@@ -84,7 +84,7 @@ var vm = new Vue({
 				}
 				commonUtils.postAjax(_ctx + "user/saveUser", vmData.data, function(data) {
 					layer.closeAll('loading');
-					if (data.isSuccess) {
+					if (data.success) {
 						vmData.data.userId = data.data;
 						layer.success(data.msg);
 					} else {

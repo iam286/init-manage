@@ -96,7 +96,7 @@ layui.use([ 'layer', 'table', 'form' ], function() {
 						userId : data.userId
 				};
 				commonUtils.postAjax(_ctx + "user/resetLoginPassword", param, function(data) {
-					if (data.isSuccess) {
+					if (data.success) {
 						layer.success(data.msg);
 					} else {
 						layer.error(data.msg);
@@ -123,7 +123,7 @@ layui.use([ 'layer', 'table', 'form' ], function() {
 					locked : checked ? "1" : "0"
 			};
 			commonUtils.postAjax(_ctx + "user/changeLockedStatus", param, function(result) {
-				if (result.isSuccess) {
+				if (result.success) {
 					layer.success(result.msg);
 				} else {
 					layer.error(result.msg);
@@ -166,7 +166,7 @@ layui.use([ 'layer', 'table', 'form' ], function() {
 	function deleteItem(id, name) {
 		layer.confirm("是否要删除用户：" + name + "，删除后将不可恢复！", {title:"警告", skin:"my-layer-danger"}, function() {
 			commonUtils.deleteAjax(_ctx + "user/delete/" + id, {}, function(data) {
-				if (data.isSuccess) {
+				if (data.success) {
 					layer.success(data.msg);
 					table.reload(tableId);
 				} else {

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head th:replace="/include/include :: static(params='layui,vue')"></head>
-<title>Qu管理平台-首页</title>
+<title>管理平台-首页</title>
 <body class="layui-layout-body">
 	<div class="layui-layout layui-layout-admin" id="vue-container">
 		<div class="layui-header">
-			<div class="layui-logo">Qu管理平台</div>
+			<div class="layui-logo">管理平台</div>
 			<ul class="layui-nav layui-layout-right">
 				<li class="layui-nav-item"><a href="javascript:;"> <img th:src="@{/static/common/image/charon.png}" class="layui-nav-img">
 					<th:block th:text="${session.currentUser.userName}"/>
@@ -27,7 +27,6 @@
 			<div class="layui-side-scroll">
 				<!-- 左侧导航区域（可配合layui已有的垂直导航） -->
 				<ul class="layui-nav layui-nav-tree">
-<!-- 					<menu-tree :message="data.menuTree"></menu-tree> -->
 					<!-- 写死了，最多只允许三级菜单，后期优化无限级菜单 -->
 					<template v-for="(menu,index) in data.menuTree">
 						<li class="layui-nav-item layui-nav-itemed" v-if="menu.hasChild">

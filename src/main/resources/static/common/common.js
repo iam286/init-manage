@@ -120,7 +120,7 @@ var commonUtils = (function() {
 				document.write("<link rel='stylesheet' href='" + _ctx + "/static/plugin/layer/layer-v3.1.0/theme/default/layer.css'>");
 				document.write("<script type='text/javascript' src='" + _ctx + "/static/plugin/layer/layer-v3.1.0/layer.js'><\/script>");
 			} else if (item == "vue") {
-				document.write("<script type='text/javascript' src='" + _ctx + "/static/plugin/vuejs/vue-2.3.0/vue.min.js'><\/script>");
+				document.write("<script type='text/javascript' src='" + _ctx + "/static/plugin/vue-2.3.0/vue.min.js'><\/script>");
 			}
 		}
 	}

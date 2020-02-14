@@ -12,7 +12,7 @@ layui.use(['form', 'layer'], function () {
             loginPassword: "admin.123"
         },
         error: {
-        	loginFail: (type == "kickout" ? "您的账号已在另一地点登录，您已被强制下线！" : "")
+        	loginFail: (type === "kickout" ? "您的账号已在另一地点登录，您已被强制下线！" : "")
         }
     }
 
@@ -26,7 +26,7 @@ layui.use(['form', 'layer'], function () {
     });
     form.on('submit(*)', function (data) {
         // 登录表单提交操作
-        layer.loadingWithText("正在努力登陆中...");
+        layer.loadingWithText("登陆中...");
         commonUtils.postAjax(_ctx + "main/login", vmData.data, function (data) {
             layer.closeAll("loading");
             if (!data.success) {

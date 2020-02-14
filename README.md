@@ -1,15 +1,16 @@
 # slv-init-manage
   基于springboot的初始化管理平台
 ## 简介：
-  slv-init-manage是一个极简模式的后台管理。就像我的简介这么极简_^^_
-## 后端技术：
-  springboot2.0，mybatis，redis，shiro
-## 前端技术：
-  layui，vue
-## 模板引擎：
-  thymeleaf
-## 图表组件：
-  echarts
+  slv-init-manage是一个极简模式的后台管理。就像简介这么极简_^^_
+## 技术架构：
+  后端技术|前端技术|模版引擎|组件
+  ---|---|---|---
+  springboot2.x|layui|thymeleaf|echarts
+  tk-mybatis|vue2.x||
+  redis|||
+  shiro|||
+  lombok|||
+
 ## 项目结构：
 ```
 |-- src
@@ -33,7 +34,7 @@
     |-- logback-spring.xml                    // logback日志配置
 |-- pom.xml
 ```
-## 主要功能（极简）
+## 主要功能
   - 首页
   - 系统管理
     - 用户管理

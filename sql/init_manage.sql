@@ -23,7 +23,20 @@ INSERT INTO `sys_icon` VALUES ('4', '&#xe66f;', '用户名', 'layui-icon layui-i
 INSERT INTO `sys_icon` VALUES ('5', '&#xe68e;', '主页', 'layui-icon layui-icon-home');
 INSERT INTO `sys_icon` VALUES ('6', '&#xe716;', '设置-空心', 'layui-icon layui-icon-set');
 INSERT INTO `sys_icon` VALUES ('7', '&#xe770;', '用户', 'layui-icon layui-icon-user');
-
+INSERT INTO `sys_icon` VALUES ('8', '&#xe656;', '模版', 'layui-icon layui-icon-template-1');
+INSERT INTO `sys_icon` VALUES ('9', '&#xe63a;', '聊天 对话 沟通', 'layui-icon layui-icon-dialogue');
+INSERT INTO `sys_icon` VALUES ('10', '&#xe67d;', '导出', 'layui-icon layui-icon-export');
+INSERT INTO `sys_icon` VALUES ('11', '&#xe675;', '微博', 'layui-icon layui-icon-login-weibo');
+INSERT INTO `sys_icon` VALUES ('12', '&#xe673;', '密码', 'layui-icon layui-icon-password');
+INSERT INTO `sys_icon` VALUES ('13', '&#xe613;', '群组', 'layui-icon layui-icon-group');
+INSERT INTO `sys_icon` VALUES ('14', '&#xe672;', '授权', 'layui-icon layui-icon-auz');
+INSERT INTO `sys_icon` VALUES ('15', '&#xe702;', '提示说明', 'layui-icon layui-icon-tips');
+INSERT INTO `sys_icon` VALUES ('16', '&#xe614;', '设置-实心', 'layui-icon layui-icon-set-fill');
+INSERT INTO `sys_icon` VALUES ('17', '&#xe66a;', '主题', 'layui-icon layui-icon-theme');
+INSERT INTO `sys_icon` VALUES ('18', '&#xe665;', '控制台', 'layui-icon layui-icon-console');
+INSERT INTO `sys_icon` VALUES ('19', '&#xe653;', '应用', 'layui-icon layui-icon-app');
+INSERT INTO `sys_icon` VALUES ('20', '&#xe63d;', 'loading', 'layui-icon layui-icon-loading');
+INSERT INTO `sys_icon` VALUES ('21', '&#xe615;', '搜索', 'layui-icon layui-icon-search');
 -- ----------------------------
 -- Table structure for sys_menu
 -- ----------------------------
@@ -45,9 +58,10 @@ CREATE TABLE `sys_menu`  (
 INSERT INTO `sys_menu` VALUES ('1', '0', '', '系统管理', '', 'layui-icon layui-icon-set-fill', 99);
 INSERT INTO `sys_menu` VALUES ('2', '1', '系统管理', '菜单管理', 'menu/menuListPage', 'layui-icon layui-icon-more', 100);
 INSERT INTO `sys_menu` VALUES ('2e3f11c5-5a71-44ed-a6d1-b825f38ef495', '0', '', '测试500', 'department/departmentListPage', 'layui-icon layui-icon-vercode', 1122);
-INSERT INTO `sys_menu` VALUES ('3', '0', '', '操作日志', 'sysOperateLog/sysOperateLogListPage', '', 100);
+INSERT INTO `sys_menu` VALUES ('3', '0', '', '操作日志', 'sysOperateLog/sysOperateLogListPage', '', 101);
 INSERT INTO `sys_menu` VALUES ('3171af1b-ae58-4ab2-8600-9bc748105f5d', '1', '系统管理', '用户管理', 'user/userListPage', 'layui-icon layui-icon-user', 1);
 INSERT INTO `sys_menu` VALUES ('4', '1', '系统管理', '角色管理', 'role/roleListPage', NULL, 100);
+INSERT INTO `sys_menu` VALUES ('5', '0', '', '应用程序', '', 'layui-icon layui-icon-app', 100);
 INSERT INTO `sys_menu` VALUES ('6', '0', '', '主页', 'main/homePage', 'layui-icon layui-icon-home', 98);
 INSERT INTO `sys_menu` VALUES ('f3ca4c56-a2d6-4159-adf9-208e5df99d55', '0', '', '测试404', 'test/404', 'layui-icon layui-icon-vercode', 111);
 
@@ -115,7 +129,7 @@ INSERT INTO `sys_role_menu` VALUES ('7', '1', '3171af1b-ae58-4ab2-8600-9bc748105
 INSERT INTO `sys_role_menu` VALUES ('77383f8e-94ff-4389-9b4a-7aeb2214475c', '745fcee9-74d3-4063-a95d-8fe416b98ce5', '1');
 INSERT INTO `sys_role_menu` VALUES ('8', '1', 'f3ca4c56-a2d6-4159-adf9-208e5df99d55');
 INSERT INTO `sys_role_menu` VALUES ('9', '1', '2e3f11c5-5a71-44ed-a6d1-b825f38ef495');
-
+INSERT INTO `sys_role_menu` VALUES ('b5aa2c35-61ed-4be7-b12b-6663ba911c9d', '1', '5');
 -- ----------------------------
 -- Table structure for sys_user
 -- ----------------------------

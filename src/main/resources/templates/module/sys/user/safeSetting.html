@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="/include/include :: static(params='layui,vue')"></head>
 <title>安全设置</title>
 <body>
@@ -32,6 +32,6 @@
 			</div>
 		</div>
 	</div>
-	<script th:src="@{/static/module/sys/user/safeSetting.js?v=}+${#strings.randomAlphanumeric(16)}"></script>
+	<script th:src="@{/static/module/sys/user/safeSetting.js(v=${#strings.randomAlphanumeric(16)})}"></script>
 </body>
 </html>

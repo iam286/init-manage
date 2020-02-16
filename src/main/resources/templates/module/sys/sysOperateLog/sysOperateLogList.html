@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="/include/include :: static(params='layui')"></head>
 <title>系统操作日志列表</title>
 <body>
@@ -25,6 +25,6 @@
 			<table class="layui-table" id="data-table" lay-filter="data-table"></table>
 		</div>
 	</div>
-	<script type="text/javascript" th:src="@{/static/module/sys/sysOperateLog/sysOperateLogList.js?v=}+${#strings.randomAlphanumeric(16)}"></script>
+	<script type="text/javascript" th:src="@{/static/module/sys/sysOperateLog/sysOperateLogList.js(v=${#strings.randomAlphanumeric(16)})}"></script>
 </body>
 </html>

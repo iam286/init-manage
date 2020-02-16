@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="/include/include :: static(params='layui,vue')"></head>
 <title>菜单表单</title>
 <body>
@@ -57,6 +57,6 @@
 		var parentName = [[${param.parentName[0]}]];
 		var action = [[${param.action[0]}]];
 	</script>
-	<script th:src="@{/static/module/sys/menu/menuForm.js?v=}+${#strings.randomAlphanumeric(16)}"></script>
+	<script th:src="@{/static/module/sys/menu/menuForm.js(v=${#strings.randomAlphanumeric(16)})}"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="/include/include :: static(params='layui,vue,dtree')"></head>
 <title>角色表单</title>
 <body>
@@ -43,6 +43,6 @@
 		var roleId = [[${param.roleId[0]}]];
 		var action = [[${param.action[0]}]];
 	</script>
-	<script th:src="@{/static/module/sys/role/roleForm.js?v=}+${#strings.randomAlphanumeric(16)}"></script>
+	<script th:src="@{/static/module/sys/role/roleForm.js(v=${#strings.randomAlphanumeric(16)})}"></script>
 </body>
 </html>

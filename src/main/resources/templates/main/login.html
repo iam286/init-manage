@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="/include/include :: static(params='layui,vue')"></head>
 <link rel="stylesheet" th:href="@{/static/main/css/login.css}" />
 <title>管理平台-登录</title>
@@ -33,6 +33,6 @@
 		var type = [[${param.type}]];
 		type = (type ? type[0] : "");
 	</script>
-	<script type="text/javascript" th:src="@{/static/main/login.js?v=}+${#strings.randomAlphanumeric(16)}"></script>
+	<script type="text/javascript" th:src="@{/static/main/login.js(v=${#strings.randomAlphanumeric(16)})}"></script>
 </body>
 </html>

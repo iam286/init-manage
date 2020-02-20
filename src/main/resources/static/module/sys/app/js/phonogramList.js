@@ -17,7 +17,7 @@ let vm = new Vue({
         });
     },
     methods: {
-        playPhonogram: function (phonogram) {
+        playPhonogram: async function (phonogram) {
             let audio = document.createElement('audio');
             let source = document.createElement('source');
             source.type = "audio/mpeg";
@@ -27,7 +27,7 @@ let vm = new Vue({
             source.autoplay = "autoplay";
             source.controls = "controls";
             audio.appendChild(source);
-            audio.play();
+            await audio.play();
         }
     },
     mounted: function () {

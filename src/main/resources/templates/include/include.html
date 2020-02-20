@@ -5,6 +5,7 @@
 	<head th:fragment="static(params)">
 		<meta charset="UTF-8">
 		<script th:inline="javascript">var _ctx = [[@{/}]];</script>
+		<link rel="shortcut icon" th:href="@{/static/favicon.ico}" >
 		<th:block th:each="item : ${#strings.listSplit(params,',')}">
 			<th:block th:switch="${item}">
 				<th:block th:case="'layui'">

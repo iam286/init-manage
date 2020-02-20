@@ -1,5 +1,5 @@
 # init-manage
-  基于springboot2.x的初始化管理平台
+  基于SpringBoot2.x的初始化管理平台
 ## 技术架构：
   后端技术|前端技术|模版引擎|组件
   ---|---|---|---
@@ -7,7 +7,6 @@
   TKmybatis|vue2.x||
   redis|||
   shiro|||
-  lombok|||
 ## 项目结构：
 ```
 |-- src
@@ -37,6 +36,7 @@
     - 用户管理
     - 菜单管理
     - 角色管理
+  - 应用程序
   - 操作日志
 ## 功能截图
   ![image](https://github.com/iam286/init-manage/blob/master/picture/login.jpg)

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/include/include :: static(params='layui,vue')"></head>
+<style>
+    .site-doc-icon {
+        margin-top: 20px;
+    }
+    .site-doc-icon li:hover {
+        background-color: #f2f2f2;
+        color: #000;
+    }
+
+    .site-doc-icon li {
+        cursor: pointer;
+        display : inline-block;
+        vertical-align: middle;
+        width: 90px;
+        height: 90px;
+        line-height: 90px;
+        margin-right: -1px;
+        margin-bottom: -1px;
+        border: 1px solid #e2e2e2;
+        font-size: 36px;
+        text-align: center;
+        color: #666;
+    }
+
+    .site-doc-icon li .doc-icon-name {
+        color: #c2c2c2;
+        height: 40px;
+    }
+</style>
+<title>用户列表</title>
+<body>
+<div class="layui-container" id="vue-container">
+    <div class="layui-row layui-col-space8">
+        <ul class="site-doc-icon">
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend>元音</legend>
+                <div class="layui-field-box">
+                    <li v-for="(vowel,index) in data.vowels" @click="playPhonogram(vowel)">
+                        <div class="doc-icon-name" >[{{vowel.kk}}]</div>
+                    </li>
+                </div>
+            </fieldset>
+            <fieldset class="layui-elem-field layui-field-title">
+                <legend>辅音</legend>
+                <div class="layui-field-box">
+                    <li v-for="(consonant,index) in data.consonants" @click="playPhonogram(consonant)">
+                        <div class="doc-icon-name" >[{{consonant.kk}}]</div>
+                    </li>
+                </div>
+            </fieldset>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript"
+        th:src="@{/static/module/sys/app/js/phonogramList.js(v=${#strings.randomAlphanumeric(16)})}"></script>
+</body>
+</html>

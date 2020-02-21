@@ -1,7 +1,7 @@
 #spring配置
 spring:
   profiles:
-    include: dev
+    include: pro
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     # 连接池配置
@@ -32,6 +32,8 @@ spring:
     cache: false
     servlet:
       content-type: text/html
+    suffix: .html
+    prefix: classpath:/templates
   # 消息队列配置
   rabbitmq:
     host: 192.168.56.103

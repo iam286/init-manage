@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.y4l3</groupId>
 	<artifactId>platform</artifactId>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>platform Maven Webapp</name>
 	<url>http://maven.apache.org</url>

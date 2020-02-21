@@ -2,9 +2,10 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="/include/include :: static(params='layui,vue')"></head>
 <style>
-    .site-doc-icon {
-        margin-top: 20px;
+    .layui-tab {
+        margin-top: 30px;
     }
+
     .site-doc-icon li:hover {
         background-color: #f2f2f2;
         color: #000;
@@ -12,7 +13,7 @@
 
     .site-doc-icon li {
         cursor: pointer;
-        display : inline-block;
+        display: inline-block;
         vertical-align: middle;
         width: 90px;
         height: 90px;
@@ -33,26 +34,39 @@
 <title>用户列表</title>
 <body>
 <div class="layui-container" id="vue-container">
-    <div class="layui-row layui-col-space8">
-        <ul class="site-doc-icon">
-            <fieldset class="layui-elem-field layui-field-title">
-                <legend>元音</legend>
-                <div class="layui-field-box">
-                    <li v-for="(vowel,index) in data.vowels" @click="playPhonogram(vowel)">
-                        <div class="doc-icon-name" >[{{vowel.kk}}]</div>
-                    </li>
-                </div>
-            </fieldset>
-            <fieldset class="layui-elem-field layui-field-title">
-                <legend>辅音</legend>
-                <div class="layui-field-box">
-                    <li v-for="(consonant,index) in data.consonants" @click="playPhonogram(consonant)">
-                        <div class="doc-icon-name" >[{{consonant.kk}}]</div>
-                    </li>
-                </div>
-            </fieldset>
+    <div class="layui-tab layui-tab-card">
+        <ul class="layui-tab-title">
+            <li class="layui-this">元音</li>
+            <li>辅音</li>
         </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <ul class="site-doc-icon">
+                    <li v-for="(vowel,index) in data.vowels" @click="playPhonogram(vowel)">
+                        <div class="doc-icon-name">[{{vowel.kk}}]</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="layui-tab-item">
+                <ul class="site-doc-icon">
+                    <li v-for="(consonant,index) in data.consonants" @click="playPhonogram(consonant)">
+                        <div class="doc-icon-name">[{{consonant.kk}}]</div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
     </div>
+    <fieldset class="layui-elem-field">
+        <legend>Tips</legend>
+        <div class="layui-field-box">
+            1.何为音节？<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;音节必须包含元音及辅音，一个单词有几个元音便有几个音节。<br>
+            2.何为重音？<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;两音节以上的词就会有重音符号[ ` ]，该音节发汉语第一声，没有该符号发汉语第三声。<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;三音节以上的词就会出现两个重音符号，除重音符号[ ` ]外，还有次重音符号[ ˌ ]，发轻声，弱于重音，重于其他音符。<br>
+        </div>
+    </fieldset>
 </div>
 <script type="text/javascript"
         th:src="@{/static/module/sys/app/js/phonogramList.js(v=${#strings.randomAlphanumeric(16)})}"></script>

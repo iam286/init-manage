@@ -34,3 +34,8 @@ let vm = new Vue({
 
     }
 });
+
+layui.use('element', function(){
+    var element = layui.element;
+
+});

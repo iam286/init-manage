@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
  * @version 1.0 2020/2/20
  */
 @Service
-@Module("音标")
+@Module("音标发音")
 public class PhonogramService extends BaseService<Phonogram, PhonogramDao> {
 
     private static final Logger logger = LoggerFactory.getLogger(PhonogramService.class);

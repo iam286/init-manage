@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping("/app")
 public class ApplicationController extends BaseController<Phonogram, PhonogramService> {
-    private static final String PATH_PREFIX = "module/sys/app/";
+    private static final String PATH_PREFIX = "/module/sys/app/";
 
     @RequestMapping(value = "/phonogramPage", method = RequestMethod.GET)
     public String roleListPage() {
